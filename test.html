@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head><title>ConsoleMind Test Page</title></head>
+<body style="font-family:sans-serif;padding:30px;background:#1a1b26;color:#e1e2e7;">
+<h1 style="color:#8b5cf6;">ConsoleMind Test Page</h1>
+<p style="color:#9ca0b0;">Click buttons to generate errors. Open ConsoleMind popup to see them captured and explained.</p>
+<br>
+<div style="display:flex;flex-wrap:wrap;gap:8px;">
+  <button onclick="console.error('TypeError: Cannot read properties of undefined (reading \'name\')')">TypeError</button>
+  <button onclick="console.error('ReferenceError: myVariable is not defined')">ReferenceError</button>
+  <button onclick="console.warn('Some icons were re-registered. Applications should only call registerIcons once.')">FluentUI Warning</button>
+  <button onclick="console.error('Minified React error #321; visit https://reactjs.org/docs/error-decoder.html')">React Error</button>
+  <button onclick="null.foo">Real TypeError</button>
+  <button onclick="Promise.reject(new Error('API request failed'))">Promise Rejection</button>
+  <button onclick="console.error('Access to fetch blocked by CORS policy: No Access-Control-Allow-Origin header')">CORS Error</button>
+  <button onclick="console.warn('ExpressionChangedAfterItHasBeenChecked')">Angular Warning</button>
+  <button onclick="console.error('Error: Maximum call stack size exceeded')">Stack Overflow</button>
+  <button onclick="console.log('Portal service not found for extension Microsoft_Azure_DNS')">Azure Log</button>
+</div>
+<br><br>
+<div id="log" style="font-family:monospace;font-size:12px;max-height:300px;overflow:auto;"></div>
+<script>
+window.addEventListener('message', function(e) {
+  if (e.data && e.data.__cm) {
+    var el = document.getElementById('log');
+    el.innerHTML = '<div style="color:#10b981;margin:3px 0;">✓ ['+e.data.level+'] '+e.data.msg.substring(0,100)+'</div>' + el.innerHTML;
+  }
+});
+</script>
+</body>
+</html>

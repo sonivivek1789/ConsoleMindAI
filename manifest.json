@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "ConsoleMind - AI",
+  "version": "1.0.0",
+  "description": "Every error explained. Every fix suggested.",
+  "permissions": ["storage", "notifications", "tabs", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "ConsoleMind"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["injector.js"],
+      "run_at": "document_start",
+      "world": "MAIN",
+      "all_frames": true
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content-capture.js"],
+      "run_at": "document_start",
+      "world": "ISOLATED",
+      "all_frames": true
+    }
+  ],
+  "devtools_page": "devtools.html",
+  "commands": {
+    "_execute_action": {
+      "suggested_key": { "default": "Ctrl+Shift+E" }
+    }
+  }
+}

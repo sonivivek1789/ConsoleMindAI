@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ConsoleMind AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/popup.css">
+<style>body { width: 100%; height: 100vh; }</style>
+</head>
+<body data-theme="dark">
+<div id="app">
+  <header id="header">
+    <div class="hdr-left">
+      <svg width="22" height="22" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="url(#g2)"/><path d="M7 8l4 4-4 4M12 16h5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><defs><linearGradient id="g2" x1="0" y1="0" x2="24" y2="24"><stop stop-color="#6366F1"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs></svg>
+      <span class="brand">ConsoleMind AI</span>
+      <span class="tagline">Every error explained. Every fix suggested.</span>
+    </div>
+    <div class="hdr-right">
+      <span class="badge err" id="bErr">0</span>
+      <span class="badge wrn" id="bWrn">0</span>
+      <span class="badge inf" id="bInf">0</span>
+      <button class="hbtn" id="btnTheme" title="Toggle theme">🌓</button>
+      <button class="hbtn" id="btnExport" title="Export report">📄</button>
+      <button class="hbtn" id="btnClear" title="Clear">🗑️</button>
+    </div>
+  </header>
+  <div id="trends"><canvas id="sparkline" width="1200" height="32"></canvas><span id="trendLabel"></span></div>
+  <div id="toolbar">
+    <div class="filters">
+      <button class="fbtn active" data-f="all">All</button>
+      <button class="fbtn" data-f="error">Errors</button>
+      <button class="fbtn" data-f="warning">Warnings</button>
+      <button class="fbtn" data-f="info">Info</button>
+    </div>
+    <input type="text" id="search" placeholder="Search errors... (Ctrl+F)" />
+  </div>
+  <div id="main">
+    <div id="listSection" class="panel">
+      <div class="panel-header" data-panel="listSection"><span class="panel-label">📋 Errors</span><button class="panel-collapse-btn">◀</button></div>
+      <div class="panel-body" id="list"><div class="empty-msg">No errors captured yet.<br><small>Browse a page — errors appear here.</small></div></div>
+    </div>
+    <div id="aiSection" class="panel">
+      <div class="panel-header" data-panel="aiSection"><span class="panel-label">🤖 AI Assistant</span><button class="panel-collapse-btn">◀</button></div>
+      <div class="panel-body np-chat-wrapper">
+        <div class="np-chat-messages-area">
+          <div class="np-chat-msg-list" id="aiMessages">
+            <div class="np-chat-msg bot">
+              <span>👋 I'm ConsoleMind AI. I search the web to explain errors and suggest fixes.<br><small style="color:var(--fg3);">Mode: 🔍 Web Search · Change in ⚙️</small></span>
+              <div class="np-chat-suggestions" id="aiSuggestions">
+                <button class="np-chat-suggest-btn" data-q="Why is this error happening?">❓ Why this error?</button>
+                <button class="np-chat-suggest-btn" data-q="How do I fix this error?">🔧 How to fix?</button>
+                <button class="np-chat-suggest-btn" data-q="Is this error critical?">⚠️ Is it critical?</button>
+                <button class="np-chat-suggest-btn" data-q="Show related StackOverflow answers">🔍 Search web</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="np-chat-bottom">
+          <div class="np-chat-bottom-row">
+            <input type="text" class="np-chat-input" id="aiInput" placeholder="Ask about this error..." />
+            <button class="np-chat-send" id="aiSend">Ask</button>
+            <button class="np-chat-settings-btn" id="btnSettings" title="AI Settings">⚙️</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="detailSection" class="panel">
+      <div class="panel-header" data-panel="detailSection"><span class="panel-label">📄 Detail</span><button class="panel-collapse-btn">◀</button></div>
+      <div class="panel-body" id="detail"><div class="empty-msg">Select an error to view details</div></div>
+    </div>
+    <div id="webpanel" class="webpanel hidden">
+      <div class="webpanel-header"><span>🔍 Web Search</span><button id="webClose" class="hbtn">✕</button></div>
+      <div id="webContent" class="web-content"></div>
+    </div>
+  </div>
+</div>
+<script src="popup-app.js"></script>
+<script src="features.js"></script><script src="ai-features.js"></script></body>
+</html>

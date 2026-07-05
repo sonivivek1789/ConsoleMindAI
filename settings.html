@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ConsoleMind — AI Settings</title>
+<link rel="stylesheet" href="styles/popup.css">
+<style>
+  body { width: 450px; height: auto; min-height: 400px; padding: 20px; overflow-y: auto; }
+  h2 { font-size: 16px; margin-bottom: 16px; background: linear-gradient(135deg,#6366f1,#8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .field { margin-bottom: 16px; }
+  .field label { display: block; font-size: 12px; color: var(--fg2); margin-bottom: 4px; font-weight: 500; }
+  .field input, .field select { width: 100%; padding: 8px 10px; background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; color: var(--fg); font-size: 12px; font-family: inherit; outline: none; }
+  .field input:focus, .field select:focus { border-color: var(--accent); }
+  .field small { display: block; margin-top: 4px; font-size: 11px; color: var(--fg3); }
+  .divider { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+  .save-btn { background: var(--accent); color: #fff; border: none; padding: 8px 20px; border-radius: 4px; font-size: 12px; cursor: pointer; font-family: inherit; }
+  .save-btn:hover { background: var(--accent2); }
+  .status { margin-top: 8px; font-size: 11px; color: var(--green); display: none; }
+  .provider-section { padding: 12px; background: var(--bg2); border-radius: 6px; margin-bottom: 12px; border: 1px solid var(--border); }
+  .provider-section h3 { font-size: 13px; margin-bottom: 10px; color: var(--fg); }
+</style>
+</head>
+<body data-theme="dark">
+  <h2>⚙️ AI Settings</h2>
+
+  <div class="field">
+    <label>AI Provider</label>
+    <select id="provider">
+      <option value="none">None (pattern DB only)</option>
+      <option value="openai">OpenAI (GPT-4o-mini)</option>
+      <option value="anthropic">Anthropic (Claude Haiku)</option>
+    </select>
+    <small>AI is used for errors the local pattern database can't explain.</small>
+  </div>
+
+  <hr class="divider">
+
+  <div class="provider-section" id="openaiSection" style="display:none;">
+    <h3>OpenAI Configuration</h3>
+    <div class="field">
+      <label>API Key</label>
+      <input type="password" id="openaiKey" placeholder="sk-..." autocomplete="off" />
+      <small>Get your key at <a href="https://platform.openai.com/api-keys" target="_blank" style="color:var(--accent)">platform.openai.com</a></small>
+    </div>
+    <div class="field">
+      <label>Model</label>
+      <select id="openaiModel">
+        <option value="gpt-4o-mini">GPT-4o Mini (fast, cheap)</option>
+        <option value="gpt-4o">GPT-4o (best quality)</option>
+        <option value="gpt-3.5-turbo">GPT-3.5 Turbo (cheapest)</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="provider-section" id="anthropicSection" style="display:none;">
+    <h3>Anthropic Configuration</h3>
+    <div class="field">
+      <label>API Key</label>
+      <input type="password" id="anthropicKey" placeholder="sk-ant-..." autocomplete="off" />
+      <small>Get your key at <a href="https://console.anthropic.com/settings/keys" target="_blank" style="color:var(--accent)">console.anthropic.com</a></small>
+    </div>
+    <div class="field">
+      <label>Model</label>
+      <select id="anthropicModel">
+        <option value="claude-haiku-4-20250514">Claude Haiku (fast, cheap)</option>
+        <option value="claude-sonnet-4-20250514">Claude Sonnet (best quality)</option>
+      </select>
+    </div>
+  </div>
+
+  <button class="save-btn" id="saveBtn">Save Settings</button>
+  <div class="status" id="status">✓ Settings saved!</div>
+
+  <script src="settings.js"></script>
+</body>
+</html>
