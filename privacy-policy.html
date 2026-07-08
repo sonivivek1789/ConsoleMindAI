@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ConsoleMind - AI | Privacy Policy</title>
+<style>
+  body { font-family: -apple-system, 'Segoe UI', sans-serif; max-width: 700px; margin: 40px auto; padding: 20px; line-height: 1.7; color: #333; }
+  h1 { color: #6366f1; }
+  h2 { color: #444; margin-top: 30px; }
+  p, li { font-size: 15px; }
+  ul { padding-left: 20px; }
+  .updated { font-size: 13px; color: #666; }
+</style>
+</head>
+<body>
+<h1>Privacy Policy — ConsoleMind - AI</h1>
+<p class="updated">Last updated: July 7, 2025</p>
+
+<h2>Overview</h2>
+<p>ConsoleMind - AI is a browser developer tool extension that captures console error messages and provides explanations and fix suggestions. We are committed to protecting your privacy.</p>
+
+<h2>Data Collection</h2>
+<p><strong>We do not collect any personal data.</strong></p>
+<p>The extension captures only JavaScript console error messages and stack traces from web pages you visit. This data is:</p>
+<ul>
+  <li>Stored locally on your device using Chrome's storage API</li>
+  <li>Never transmitted to our servers</li>
+  <li>Never shared with third parties</li>
+  <li>Automatically cleared when you close the browser tab</li>
+</ul>
+
+<h2>Third-Party Services (Optional)</h2>
+<p>If you choose to enable AI-powered explanations, the extension may send error messages to:</p>
+<ul>
+  <li><strong>StackOverflow API</strong> — to search for relevant answers (public API, no auth required)</li>
+  <li><strong>GitHub API</strong> — to search for related issues (public API)</li>
+  <li><strong>MDN Web Docs API</strong> — to find documentation (public API)</li>
+  <li><strong>OpenAI API</strong> — only if you provide your own API key</li>
+  <li><strong>Anthropic API</strong> — only if you provide your own API key</li>
+</ul>
+<p>These services are only contacted when you explicitly interact with the AI Assistant feature. No data is sent automatically in the background.</p>
+
+<h2>API Keys</h2>
+<p>If you provide an OpenAI or Anthropic API key, it is stored locally in your browser's extension storage. It is never transmitted to any server other than the respective API provider (OpenAI or Anthropic) when you make a query.</p>
+
+<h2>Permissions</h2>
+<p>The extension requests the following permissions:</p>
+<ul>
+  <li><strong>Host permissions (all URLs)</strong> — Required to inject error-capture scripts on any website you visit. Only console error messages are captured, not page content.</li>
+  <li><strong>Storage</strong> — To store captured errors and your preferences locally.</li>
+  <li><strong>Notifications</strong> — To alert you when error spikes are detected.</li>
+  <li><strong>Tabs</strong> — To identify which tab errors come from.</li>
+  <li><strong>Scripting</strong> — To inject the error capture scripts into web pages.</li>
+</ul>
+
+<h2>Data We Do NOT Collect</h2>
+<ul>
+  <li>Personal information (name, email, address)</li>
+  <li>Browsing history or web activity</li>
+  <li>Page content (text, images, forms)</li>
+  <li>Cookies or authentication tokens</li>
+  <li>Location data</li>
+  <li>Financial information</li>
+  <li>Keystrokes or mouse movements</li>
+</ul>
+
+<h2>Data Retention</h2>
+<p>Captured error data is stored locally and is automatically removed when the browser tab is closed. You can manually clear all data at any time using the "Clear" button in the extension.</p>
+
+<h2>Children's Privacy</h2>
+<p>This extension is a developer tool and is not directed at children under 13. We do not knowingly collect data from children.</p>
+
+<h2>Changes to This Policy</h2>
+<p>We may update this privacy policy from time to time. Changes will be reflected in the "Last updated" date above.</p>
+
+<h2>Contact</h2>
+<p>If you have questions about this privacy policy, please create an issue on our GitHub repository or contact us through the Chrome Web Store listing.</p>
+</body>
+</html>
